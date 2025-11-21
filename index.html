@@ -3,130 +3,128 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sebastián Valentín Candelario — Environmental Plant & Energy Engineering</title>
-  <meta name="description" content="Professional profile of Sebastián V. Candelario — Environmental Plant & Energy Engineer specialized in plant engineering design, sustainable energy systems, and advanced process optimization." />
+  <title>Sebastián V. Candelario — Home</title>
+  <meta name="description" content="Portfolio of Sebastián V. Candelario — Environmental Plant & Energy Engineer." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{--bg:#0f1724;--card:#0b1220;--accent:#10b981;--muted:#94a3b8;--glass:rgba(255,255,255,0.04)}
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#e6eef6;background:linear-gradient(180deg,#071124 0%, #08121b 60%);}    
-    .container{max-width:1000px;margin:40px auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:14px}
-    .avatar{width:76px;height:76px;border-radius:12px;background:linear-gradient(135deg,#123 10%, #024 90%);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:22px}
-    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
-    .hero{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start;margin-top:28px}
-    .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 24px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
-    h1{margin:0;font-size:28px}
-    p.lead{color:var(--muted);margin-top:8px}
-    .about p{line-height:1.6;color:#d7e6f6}
-    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-    .chip{background:var(--glass);padding:8px 12px;border-radius:999px;font-size:13px;color:var(--muted)}
-    .side .contact-item{display:flex;gap:10px;align-items:center;margin-bottom:12px}
-    .section{margin-top:20px}
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-    .project{padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
-    footer{margin-top:40px;color:var(--muted);text-align:center;font-size:13px}
-    @media (max-width:880px){.hero{grid-template-columns:1fr}.avatar{width:60px;height:60px}}
-    html{scroll-behavior:smooth}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#0284c7);color:white;text-decoration:none;font-weight:600}
+    :root{
+      --bg:#f6fbf8;
+      --card:#ffffff;
+      --accent:#16a34a;
+      --accent-2:#059669;
+      --muted:#5b6b68;
+      --shadow:0 6px 24px rgba(0,0,0,0.08);
+      --radius:14px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      font-family:Inter,Arial;
+      background:var(--bg);
+      color:#0f1724;
+    }
+
+    /* NAVBAR */
+    nav{
+      width:100%;
+      padding:18px 32px;
+      background:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:var(--shadow);
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+    nav .brand{
+      font-weight:800;
+      font-size:20px;
+      color:var(--accent-2);
+    }
+    nav .links a{
+      margin-left:20px;
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:10px;
+    }
+    nav .links a:hover{
+      background:rgba(5,150,105,0.08);
+      color:var(--accent-2);
+    }
+
+    /* HERO */
+    .hero{
+      max-width:1100px;
+      margin:60px auto;
+      padding:32px;
+      text-align:center;
+    }
+    .hero h1{
+      font-size:46px;
+      font-weight:800;
+      color:#053322;
+    }
+    .hero p{
+      margin-top:16px;
+      font-size:18px;
+      color:var(--muted);
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:24px;
+      padding:12px 22px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:white;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow:0 6px 18px rgba(6,95,70,0.12);
+    }
+
+    footer{
+      text-align:center;
+      margin-top:60px;
+      padding:20px;
+      color:var(--muted);
+      font-size:14px;
+    }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="avatar">SV</div>
-        <div>
-          <div style="font-weight:700">Sebastián V. Candelario</div>
-          <div style="font-size:13px;color:var(--muted)">Master of Science — Environmental, Process & Energy Engineering</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#about">About Me</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
 
-    <main class="hero">
-      <section class="card about" id="about">
-        <h1>Sebastián V. Candelario</h1>
-        <div class="lead">Environmental Plant & Energy Engineer with a strong focus on sustainable industrial systems, advanced process design, and clean energy generation. Currently completing a Master's degree at MCI in Environmental, Process & Energy Engineering.</div>
+  <!-- NAVBAR WITH REAL PAGE LINKS -->
+  <nav>
+    <div class="brand">Sebastián V. Candelario</div>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/education/">Education</a>
+      <a href="/experience/">Experience</a>
+      <a href="/projects/">Projects</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </nav>
 
-        <div class="section">
-          <h3 style="margin:0 0 8px 0">Summary</h3>
-          <p>I am dedicated to the engineering of energy and industrial plants with an emphasis on sustainability, process efficiency, and environmental performance. My work integrates thermodynamic analysis, process simulation, and environmental impact assessment to support cleaner and more efficient industrial operations. I am passionate about bridging engineering design with innovative solutions that support the global energy transition.</p>
-        </div>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Environmental Plant & Energy Engineer</h1>
+    <p>Specialized in sustainable industrial systems, process simulation, and low-carbon energy solutions.</p>
+    <a class="btn" href="/projects/">Explore Projects</a>
+  </section>
 
-        <div class="section">
-          <h3 style="margin:0 0 8px 0">Skills</h3>
-          <div class="skills">
-            <div class="chip">Process Simulation</div>
-            <div class="chip">Mass & Energy Balances</div>
-            <div class="chip">Environmental Impact Assessment</div>
-            <div class="chip">Life Cycle Assessment (LCA)</div>
-            <div class="chip">Energy Efficiency Optimization</div>
-            <div class="chip">Matlab / Python</div>
-            <div class="chip">Aspen / EBSILON Modeling</div>
-          </div>
-        </div>
+  <footer>
+    © <span id="year"></span> Sebastián V. Candelario — All rights reserved
+  </footer>
 
-        <div class="section">
-          <h3 style="margin:0 0 8px 0">Education</h3>
-          <p><strong>Master of Science (in progress)</strong> — MCI: Environmental, Process & Energy Engineering<br>
-          <strong>Bachelor's Degree</strong> — Plant & Energy Engineering (Environmental Engineering)</p>
-        </div>
-
-        <div class="section" id="experience">
-          <h3 style="margin:0 0 8px 0">Professional Experience</h3>
-          <ul style="color:var(--muted)">
-            <li>Energy optimization projects in industrial plants, focusing on thermal system performance and process efficiency.</li>
-            <li>Environmental impact assessments and development of mitigation strategies for industrial operations.</li>
-            <li>Process modeling and thermodynamic analysis for sustainable plant design.</li>
-          </ul>
-        </div>
-
-      </section>
-
-      <aside class="card side">
-        <div class="contact">
-          <h3 style="margin:0 0 12px 0">Contact</h3>
-          <div class="contact-item"><strong>Email:</strong> <a href="mailto:sebastian@example.com">sebastian@example.com</a></div>
-          <div class="contact-item"><strong>LinkedIn:</strong> <a href="#">linkedin.com/in/sebastian-v-candelario</a></div>
-          <div class="contact-item"><strong>Location:</strong> Vienna, Austria</div>
-          <div style="margin-top:12px"><a class="btn" href="#contact">Send a Message</a></div>
-        </div>
-
-        <div class="section" style="margin-top:18px">
-          <h4 style="margin:0 0 8px 0">Highlighted Projects</h4>
-          <div class="projects">
-            <div class="project">
-              <strong>Industrial Energy Optimization — Plant X</strong>
-              <div style="font-size:13px;color:var(--muted);margin-top:6px">Improved thermal efficiency and reduced overall energy consumption through advanced process analysis.</div>
-            </div>
-            <div class="project">
-              <strong>LCA Study — System Y</strong>
-              <div style="font-size:13px;color:var(--muted);margin-top:6px">Comprehensive life cycle carbon footprint assessment for alternative technological configurations.</div>
-            </div>
-          </div>
-        </div>
-
-      </aside>
-    </main>
-
-    <section class="card section" id="projects">
-      <h3 style="margin-top:0">Projects & Portfolio</h3>
-      <p style="color:var(--muted)">Here you can include links to publications, presentations, repositories, or downloadable documents (PDF).</p>
-      <div style="margin-top:12px"><a class="btn" href="#">View CV / Download PDF</a></div>
-    </section>
-
-    <section class="card section" id="contact">
-      <h3 style="margin-top:0">Contact</h3>
-      <p style="color:var(--muted)">Interested in collaborating or need information about a project? Send me an email or connect with me on LinkedIn.</p>
-      <form action="mailto:sebastian@example.com" method="post"
-    }catch(e){}
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
