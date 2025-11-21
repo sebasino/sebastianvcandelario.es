@@ -22,37 +22,64 @@
       font-family:Inter, Arial, sans-serif;
       background:var(--bg);
       color:#0f1724;
+      max-width:100%;
+      overflow-x:hidden;
     }
 
-    /* NAVBAR */
+    /* NAVBAR — versión optimizada */
     nav{
       width:100%;
-      padding:18px 32px;
+      padding:14px 18px;
       background:white;
       display:flex;
       justify-content:space-between;
       align-items:center;
+      flex-wrap:wrap;
       box-shadow:var(--shadow);
       position:sticky;
       top:0;
       z-index:20;
+      box-sizing:border-box;
     }
+
     nav .brand{
       font-weight:800;
       font-size:20px;
       color:var(--accent-2);
     }
+
+    nav .links{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
     nav .links a{
-      margin-left:20px;
       text-decoration:none;
       color:var(--muted);
       font-weight:600;
-      padding:8px 12px;
+      padding:6px 10px;
       border-radius:10px;
+      font-size:14px;
     }
+
     nav .links a:hover{
       background:rgba(5,150,105,0.08);
       color:var(--accent-2);
+    }
+
+    /* Responsive navbar */
+    @media (max-width: 768px) {
+      nav {
+        padding:10px 14px;
+        align-items:flex-start;
+      }
+
+      nav .brand {
+        margin-bottom:6px;
+        font-size:18px;
+      }
     }
 
     /* PROJECTS SECTION */
@@ -60,7 +87,9 @@
       max-width:1100px;
       margin:60px auto;
       padding:0 24px 40px 24px;
+      box-sizing:border-box;
     }
+
     .projects-title{
       font-size:32px;
       font-weight:800;
@@ -73,6 +102,8 @@
       display:grid;
       grid-template-columns:repeat(3, minmax(0,1fr));
       gap:20px;
+      width:100%;
+      box-sizing:border-box;
     }
 
     /* PROJECT CARD */
@@ -153,12 +184,14 @@
       display:flex;
       flex-direction:column;
     }
+
     .kpi-label{
       text-transform:uppercase;
       font-size:11px;
       letter-spacing:0.06em;
       color:#9ca3af;
     }
+
     .kpi-value{
       font-weight:700;
       color:#059669;
@@ -170,6 +203,7 @@
       display:flex;
       justify-content:flex-end;
     }
+
     .project-link{
       font-size:13px;
       font-weight:600;
@@ -184,7 +218,7 @@
       background:rgba(5,150,105,0.14);
     }
 
-    /* RESPONSIVE */
+    /* RESPONSIVE GRID */
     @media (max-width:900px){
       .projects-grid{
         grid-template-columns:repeat(2, minmax(0,1fr));
@@ -200,6 +234,7 @@
 </head>
 
 <body>
+
   <!-- NAVBAR -->
   <nav>
     <div class="brand">Sebastián Valentín Candelario</div>
@@ -217,9 +252,9 @@
   <section class="projects-section">
     <h1 class="projects-title">Projects</h1>
 
- <p class="section-placeholder">
-  This section is under development. New content will be available soon.
-</p>
+    <p class="section-placeholder" style="text-align:center; font-size:22px; color:#5b6b68;">
+      This section is under development. New content will be available soon.
+    </p>
 
     <div class="projects-grid">
 
@@ -263,5 +298,6 @@
 
     </div>
   </section>
+
 </body>
 </html>
