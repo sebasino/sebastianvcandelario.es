@@ -44,13 +44,14 @@
       font-weight:800;
       font-size:20px;
       color:var(--accent-2);
+      text-decoration:none;
     }
 
     nav .links{
       display:flex;
       align-items:center;
       flex-wrap:wrap;
-      gap:8px; /* separación entre enlaces */
+      gap:8px;
     }
 
     nav .links a{
@@ -65,15 +66,6 @@
     nav .links a:hover{
       background:rgba(5,150,105,0.08);
       color:var(--accent-2);
-    }
-
-    /* TITLE */
-    h1{
-      font-size:32px;
-      font-weight:800;
-      color:#053322;
-      text-align:center;
-      margin-top:40px;
     }
 
     /* Responsive navbar */
@@ -92,6 +84,72 @@
         justify-content:flex-start;
       }
     }
+
+    /* CONTACT SECTION */
+    .contact-container {
+      max-width: 700px;
+      margin: 60px auto;
+      background: var(--card);
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      box-sizing: border-box;
+    }
+
+    .contact-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #053322;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .contact-subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(5,150,105,0.15);
+      background: #ffffff;
+      font-size: 14px;
+      font-family: Inter, Arial, sans-serif;
+      color: #0f1724;
+      box-sizing: border-box;
+    }
+
+    .contact-btn {
+      margin-top: 10px;
+      padding: 12px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .contact-btn:hover {
+      opacity: 0.92;
+    }
   </style>
 </head>
 
@@ -99,7 +157,7 @@
 
   <!-- NAVBAR -->
   <nav>
-    <div class="brand">Sebastián Valentín Candelario</div>
+    <a class="brand" href="/">Sebastián Valentín Candelario</a>
     <div class="links">
       <a href="/">Home</a>
       <a href="/about-me/">About Me</a>
@@ -110,13 +168,41 @@
     </div>
   </nav>
 
-  <!-- PAGE TITLE -->
-  <h1>Contact</h1>
+  <!-- CONTACT SECTION -->
+  <section class="contact-container">
+    <h1 class="contact-title">Contact</h1>
+    <p class="contact-subtitle">
+      If you want to collaborate, have any questions, or need information about a project,
+      feel free to send me a message using this form.
+    </p>
 
-  <!-- PAGE CONTENT -->
-  <p style="text-align:center; margin-top:40px; font-size:25px; color:#5b6b68;">
-    This section is in progress. New content will be added soon :)
-  </p>
+    <!-- FORMSPREE FORM -->
+ 
+    <form 
+  action="https://formspree.io/f/mdkjkzop"
+  method="POST"
+  class="contact-form"
+>
+  <!-- Nombre -->
+  <label>Your name</label>
+  <input type="text" name="name" required>
+
+  <!-- Email -->
+  <label>Your email</label>
+  <input type="email" name="email" required>
+
+  <!-- Mensaje -->
+  <label>Your message</label>
+  <textarea name="message" rows="4" required></textarea>
+
+  <!-- Asunto opcional -->
+  <input type="hidden" name="_subject" value="New message from portfolio">
+
+  <button type="submit" class="contact-btn">Send message</button>
+</form>
+
+  </section>
 
 </body>
 </html>
+
