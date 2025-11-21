@@ -4,11 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sebastián Valentín Candelario — Portfolio</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-...recorta..."
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
   <style>
     :root{
@@ -20,7 +29,11 @@
       --muted:#9ca3af;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
     body{
       font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
@@ -37,21 +50,24 @@
       background:rgba(2,6,23,0.92);
       backdrop-filter:blur(12px);
       border-bottom:1px solid rgba(148,163,184,0.25);
-      padding:10px 24px; 
+      padding:8px 18px;
     }
+
     .nav{
       max-width:1100px;
       margin:0 auto;
-      padding:10px 20px;
+      padding:6px 12px;
       display:flex;
       align-items:center;
       justify-content:space-between;
     }
+
     .nav-left{
       display:flex;
       align-items:center;
       gap:10px;
     }
+
     .logo-circle{
       width:40px;
       height:40px;
@@ -64,15 +80,20 @@
       font-weight:800;
       font-size:18px;
     }
+
     .brand{
       display:flex;
       flex-direction:column;
       line-height:1.1;
     }
+
     .brand-name{
       font-weight:700;
       font-size:15px;
+      text-decoration:none;
+      color:inherit;
     }
+
     .brand-role{
       font-size:12px;
       color:var(--muted);
@@ -82,13 +103,16 @@
       display:flex;
       gap:14px;
       font-size:14px;
+      flex-wrap:wrap;
     }
+
     .nav-links a{
       text-decoration:none;
       color:var(--muted);
       padding:6px 10px;
       border-radius:999px;
     }
+
     .nav-links a:hover{
       color:var(--text);
       background:rgba(34,197,94,0.12);
@@ -105,13 +129,14 @@
     /* HERO */
     .hero{
       max-width:1100px;
-      margin:40px auto 60px auto;
+      margin:28px auto 40px auto;
       padding:0 20px;
       display:grid;
       grid-template-columns:minmax(0,3fr) minmax(0,2fr);
-      gap:30px;
+      gap:24px;
       align-items:center;
     }
+
     @media(max-width:880px){
       .hero{
         grid-template-columns:1fr;
@@ -125,26 +150,31 @@
       color:var(--accent-2);
       font-weight:600;
     }
+
     .hero-title{
-      margin-top:10px;
-      font-size:32px;
-      line-height:1.2;
+      margin-top:8px;
+      font-size:30px;
+      line-height:1.25;
       font-weight:800;
     }
+
     .hero-title span{
       color:var(--accent-2);
     }
+
     .hero-sub{
       margin-top:10px;
-      font-size:17px;
+      font-size:16px;
       color:var(--muted);
     }
+
     .hero-buttons{
-      margin-top:20px;
+      margin-top:18px;
       display:flex;
       flex-wrap:wrap;
       gap:10px;
     }
+
     .btn-primary{
       padding:10px 18px;
       border-radius:999px;
@@ -156,6 +186,7 @@
       text-decoration:none;
       font-size:14px;
     }
+
     .btn-ghost{
       padding:10px 16px;
       border-radius:999px;
@@ -169,17 +200,19 @@
       align-items:center;
       gap:6px;
     }
+
     .btn-ghost i{
       font-size:14px;
     }
 
     .hero-badges{
-      margin-top:20px;
+      margin-top:18px;
       display:flex;
       flex-wrap:wrap;
       gap:8px;
       font-size:11px;
     }
+
     .badge{
       border-radius:999px;
       border:1px solid rgba(34,197,94,0.5);
@@ -194,6 +227,7 @@
       display:flex;
       justify-content:center;
     }
+
     .photo-frame{
       width:230px;
       height:230px;
@@ -203,6 +237,7 @@
       box-shadow:0 20px 40px rgba(0,0,0,0.4);
       position:relative;
     }
+
     .photo-inner{
       width:100%;
       height:100%;
@@ -210,11 +245,13 @@
       overflow:hidden;
       background:#020617;
     }
+
     .photo-inner img{
       width:100%;
       height:100%;
       object-fit:cover;
     }
+
     .hero-tag{
       position:absolute;
       bottom:-14px;
@@ -230,8 +267,17 @@
       align-items:center;
       gap:6px;
     }
+
     .hero-tag i{
       color:var(--accent-2);
+    }
+
+    /* FOOTER */
+    footer{
+      text-align:center;
+      padding:16px;
+      font-size:13px;
+      color:#5b6b68;
     }
   </style>
 </head>
@@ -243,17 +289,17 @@
       <div class="nav-left">
         <div class="logo-circle">SC</div>
         <div class="brand">
-          <a href="/about-me/" class="brand-name" style="text-decoration:none;color:inherit;">
+          <a href="/" class="brand-name">
             Sebastián Valentín Candelario
           </a>
-          <span class="brand-role">Energy & Process Engineer</span>
+          <span class="brand-role">Energy &amp; Process Engineer</span>
         </div>
       </div>
       <nav class="nav-links">
         <a href="#home">Home</a>
         <a href="/about-me/">About me</a>
         <a href="/experience/">Experience</a>
-        <a href="/education">Education</a>
+        <a href="/education/">Education</a>
         <a href="/projects/">Projects</a>
         <a href="/contact/">Contact</a>
       </nav>
@@ -263,7 +309,7 @@
   <!-- HOME / HERO -->
   <section id="home" class="hero">
     <div>
-      <div class="hero-kicker">Energy & Process Engineering</div>
+      <div class="hero-kicker">Energy &amp; Process Engineering</div>
       <h1 class="hero-title">
         Hi, I’m <span>Sebastián Valentín Candelario</span><br>
         Environmental Process and Energy Engineer.
@@ -275,7 +321,7 @@
       </p>
 
       <div class="hero-buttons">
-        <a href="#projects" class="btn-primary">Explore my projects</a>
+        <a href="/projects/" class="btn-primary">Explore my projects</a>
         <a href="https://www.linkedin.com/in/sebastian-valentin-candelario/"
            target="_blank" class="btn-ghost">
           <i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn
@@ -284,7 +330,7 @@
 
       <div class="hero-badges">
         <span class="badge">Process simulation (Aspen / MATLAB)</span>
-        <span class="badge">Mass & energy balances</span>
+        <span class="badge">Mass &amp; energy balances</span>
         <span class="badge">Sustainable energy systems</span>
       </div>
     </div>
@@ -292,7 +338,7 @@
     <div class="hero-right">
       <div class="photo-frame">
         <div class="photo-inner">
-          <!-- Pon aquí tu foto, subida a /about-me/ o raíz -->
+          <!-- Asegúrate de que esta ruta existe -->
           <img src="/about-me/IMGweb.jpg" alt="Sebastián Valentín Candelario">
         </div>
         <div class="hero-tag">
@@ -302,10 +348,11 @@
       </div>
     </div>
   </section>
-<footer style="text-align:center; padding:20px; color:#5b6b68;">
-  © <span id="year"></span> Sebastián Valentín Candelario. All rights reserved.
-</footer>
 
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> Sebastián Valentín Candelario. All rights reserved.
+  </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
