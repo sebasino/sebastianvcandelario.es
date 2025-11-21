@@ -1,9 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects — Sebastián Valentín Candelario</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f6fbf8;
+      --card:#ffffff;
+      --accent:#16a34a;
+      --accent-2:#059669;
+      --muted:#5b6b68;
+      --shadow:0 10px 30px rgba(0,0,0,0.08);
+      --radius:16px;
+    }
+
+    body{
+      margin:0;
+      font-family:Inter, Arial, sans-serif;
+      background:var(--bg);
+      color:#0f1724;
+    }
+
+    /* NAVBAR */
+    nav{
+      width:100%;
+      padding:18px 32px;
+      background:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:var(--shadow);
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+    nav .brand{
+      font-weight:800;
+      font-size:20px;
+      color:var(--accent-2);
+    }
+    nav .links a{
+      margin-left:20px;
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:10px;
+    }
+    nav .links a:hover{
+      background:rgba(5,150,105,0.08);
+      color:var(--accent-2);
+    }
+
+    /* PROJECTS SECTION */
+    .projects-section{
+      max-width:1100px;
+      margin:60px auto;
+      padding:0 24px 40px 24px;
+    }
+    .projects-title{
+      font-size:32px;
+      font-weight:800;
+      color:#053322;
+      margin-bottom:20px;
+      text-align:center;
+    }
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:20px;
+    }
+
+    /* PROJECT CARD */
+    .project-card{
+      background:#ffffff;
+      border-radius:16px;
+      padding:20px 20px 18px 20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      border:1px solid rgba(5,150,105,0.08);
+      transition:transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .project-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 40px rgba(0,0,0,0.12);
+      border-color:rgba(5,150,105,0.20);
+    }
+
+    .project-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .project-title{
+      font-size:18px;
+      font-weight:700;
+      color:#053322;
+    }
+
+    .project-tag{
+      font-size:12px;
+      padding:4px 10px;
+      border-radius:999px;
+      background:rgba(22,163,74,0.08);
+      color:#059669;
+      font-weight:600;
+    }
+
+    .project-description{
+      font-size:14px;
+      color:#5b6b68;
+      line-height:1.6;
+    }
+
+    /* TECH BADGES */
+    .tech-badges{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      margin-top:4px;
+    }
+
+    .tech-badge{
+      font-size:11px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(5,150,105,0.06);
+      color:#059669;
+      font-weight:600;
+    }
+
+    /* KPI ROW */
+    .kpi-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      margin-top:10px;
+      font-size:12px;
+      color:#5b6b68;
+    }
+
+    .kpi-item{
+      display:flex;
+      flex-direction:column;
+    }
+    .kpi-label{
+      text-transform:uppercase;
+      font-size:11px;
+      letter-spacing:0.06em;
+      color:#9ca3af;
+    }
+    .kpi-value{
+      font-weight:700;
+      color:#059669;
+    }
+
+    /* VIEW BUTTON */
+    .project-footer{
+      margin-top:12px;
+      display:flex;
+      justify-content:flex-end;
+    }
+    .project-link{
+      font-size:13px;
+      font-weight:600;
+      text-decoration:none;
+      color:#059669;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(5,150,105,0.08);
+    }
+
+    .project-link:hover{
+      background:rgba(5,150,105,0.14);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width:900px){
+      .projects-grid{
+        grid-template-columns:repeat(2, minmax(0,1fr));
+      }
+    }
+
+    @media (max-width:600px){
+      .projects-grid{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+
 <body>
-  <h1>Projects</h1>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="brand">Sebastián Valentín Candelario</div>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/about-me/">About Me</a>
+      <a href="/education/">Education</a>
+      <a href="/experience/">Experience</a>
+      <a href="/projects/">Projects</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </nav>
 
-  <p style="text-align:center; margin-top:40px; font-size:25px; color:#5b6b68;">
-     This section is in progress. New content will be added soon :)
-  </p>
+  <!-- PROJECTS SECTION -->
+  <section class="projects-section">
+    <h1 class="projects-title">Projects</h1>
 
+    <div class="projects-grid">
+
+      <!-- PROJECT CARD: Simulation -->
+      <article class="project-card">
+        <div class="project-header">
+          <div class="project-title">Industrial Heat Exchanger Simulation</div>
+          <div class="project-tag">Simulation</div>
+        </div>
+
+        <p class="project-description">
+          Steady-state simulation of a shell-and-tube heat exchanger for an industrial process,
+          optimizing outlet temperatures, energy demand and overall thermal efficiency under
+          different operating conditions.
+        </p>
+
+        <div class="tech-badges">
+          <span class="tech-badge">Aspen Plus</span>
+          <span class="tech-badge">Energy balance</span>
+          <span class="tech-badge">Process simulation</span>
+          <span class="tech-badge">Optimization</span>
+        </div>
+
+        <div class="kpi-row">
+          <div class="kpi-item">
+            <span class="kpi-label">Energy savings</span>
+            <span class="kpi-value">+12% vs baseline</span>
+          </div>
+          <div class="kpi-item">
+            <span class="kpi-label">Thermal efficiency</span>
+            <span class="kpi-value">82% → 91%</span>
+          </div>
+          <div class="kpi-item">
+            <span class="kpi-label">CO₂ reduction</span>
+            <span class="kpi-value">−18 tCO₂/year</span>
+          </div>
+        </div>
+
+        <div class="project-footer">
+          <a class="project-link" href="#">View project details</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
 </body>
-
+</html>
