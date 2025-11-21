@@ -63,6 +63,21 @@
       background:radial-gradient(circle at top,#052e16 0,#020617 55%);
       color:var(--text);
       min-height:100vh;
+      position:relative; /* necesario para ::before */
+    }
+
+    /* FONDO CON IMAGEN DIFUMINADA */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:url("/about-me/background.jpg");
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+      filter:blur(10px) brightness(0.45);
+      z-index:-1;
+      pointer-events:none;
     }
 
     /* HEADER */
@@ -73,13 +88,13 @@
       background:rgba(2,6,23,0.92);
       backdrop-filter:blur(12px);
       border-bottom:1px solid rgba(148,163,184,0.25);
-      padding:10px 22px; /* AUMENTADO un poco */
+      padding:10px 22px;
     }
 
     .nav{
-      max-width:1200px; /* AUMENTADO (antes 1100px) */
+      max-width:1200px;
       margin:0 auto;
-      padding:8px 14px; /* AUMENTADO ligeramente */
+      padding:8px 14px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -88,12 +103,12 @@
     .nav-left{
       display:flex;
       align-items:center;
-      gap:12px; /* AUMENTADO */
+      gap:12px;
     }
 
     .logo-circle{
-      width:50px;  /* AUMENTADO (antes 40px) */
-      height:50px; /* AUMENTADO */
+      width:50px;
+      height:50px;
       border-radius:999px;
       background:radial-gradient(circle,#22c55e,#16a34a,#022c22);
       display:flex;
@@ -101,7 +116,7 @@
       justify-content:center;
       color:white;
       font-weight:800;
-      font-size:22px; /* AUMENTADO (antes 18px) */
+      font-size:22px;
     }
 
     .brand{
@@ -112,27 +127,27 @@
 
     .brand-name{
       font-weight:700;
-      font-size:19px; /* AUMENTADO (antes 15px) */
+      font-size:19px;
       text-decoration:none;
       color:inherit;
     }
 
     .brand-role{
-      font-size:15px; /* AUMENTADO (antes 12px) */
+      font-size:15px;
       color:var(--muted);
     }
 
     .nav-links{
       display:flex;
-      gap:16px; /* AUMENTADO (antes 14px) */
-      font-size:17px; /* AUMENTADO (antes 14px) */
+      gap:16px;
+      font-size:17px;
       flex-wrap:wrap;
     }
 
     .nav-links a{
       text-decoration:none;
       color:var(--muted);
-      padding:8px 12px; /* AUMENTADO */
+      padding:8px 12px;
       border-radius:999px;
     }
 
@@ -151,12 +166,12 @@
 
     /* HERO */
     .hero{
-      max-width:1200px; /* AUMENTADO (antes 1100px) */
-      margin:32px auto 50px auto; /* AUMENTADO */
-      padding:0 24px; /* AUMENTADO */
+      max-width:1200px;
+      margin:32px auto 50px auto;
+      padding:0 24px;
       display:grid;
       grid-template-columns:minmax(0,3fr) minmax(0,2fr);
-      gap:28px; /* AUMENTADO */
+      gap:28px;
       align-items:center;
     }
 
@@ -167,7 +182,7 @@
     }
 
     .hero-kicker{
-      font-size:16px; /* AUMENTADO (antes 13px) */
+      font-size:16px;
       letter-spacing:0.14em;
       text-transform:uppercase;
       color:var(--accent-2);
@@ -175,8 +190,8 @@
     }
 
     .hero-title{
-      margin-top:10px; /* AUMENTADO */
-      font-size:38px;  /* AUMENTADO (antes 30px) */
+      margin-top:10px;
+      font-size:38px;
       line-height:1.25;
       font-weight:800;
     }
@@ -186,20 +201,20 @@
     }
 
     .hero-sub{
-      margin-top:12px; /* AUMENTADO */
-      font-size:20px;  /* AUMENTADO (antes 16px) */
+      margin-top:12px;
+      font-size:20px;
       color:var(--muted);
     }
 
     .hero-buttons{
-      margin-top:20px; /* AUMENTADO */
+      margin-top:20px;
       display:flex;
       flex-wrap:wrap;
-      gap:12px; /* AUMENTADO */
+      gap:12px;
     }
 
     .btn-primary{
-      padding:12px 22px; /* AUMENTADO */
+      padding:12px 22px;
       border-radius:999px;
       border:none;
       cursor:pointer;
@@ -207,57 +222,56 @@
       background:linear-gradient(90deg,var(--accent),var(--accent-2));
       color:white;
       text-decoration:none;
-      font-size:16px; /* AUMENTADO (antes 14px) */
+      font-size:16px;
     }
 
     .btn-ghost{
-      padding:12px 20px; /* AUMENTADO */
+      padding:12px 20px;
       border-radius:999px;
       border:1px solid rgba(148,163,184,0.5);
       background:transparent;
       color:var(--text);
       cursor:pointer;
-      font-size:16px; /* AUMENTADO */
+      font-size:16px;
       text-decoration:none;
       display:inline-flex;
       align-items:center;
-      gap:8px; /* AUMENTADO */
+      gap:8px;
     }
 
     .btn-ghost i{
-      font-size:16px; /* AUMENTADO */
+      font-size:16px;
     }
 
     .hero-badges{
-      margin-top:20px; /* AUMENTADO */
+      margin-top:20px;
       display:flex;
       flex-wrap:wrap;
-      gap:10px; /* AUMENTADO */
-      font-size:14px; /* AUMENTADO (antes 11px) */
+      gap:10px;
+      font-size:14px;
     }
 
     .badge{
       border-radius:999px;
       border:1px solid rgba(34,197,94,0.5);
-      padding:8px 12px; /* AUMENTADO */
+      padding:8px 12px;
       color:var(--accent-2);
       background:rgba(22,163,74,0.12);
       font-weight:600;
     }
 
-    /* FOTO LADO DERECHO */
     .hero-right{
       display:flex;
       justify-content:center;
     }
 
     .photo-frame{
-      width:290px;  /* AUMENTADO (antes 230px) */
-      height:290px; /* AUMENTADO */
+      width:290px;
+      height:290px;
       border-radius:999px;
       background:radial-gradient(circle,#22c55e,#16a34a,#0b1120);
-      padding:6px; /* AUMENTADO */
-      box-shadow:0 24px 48px rgba(0,0,0,0.45); /* AUMENTADO */
+      padding:6px;
+      box-shadow:0 24px 48px rgba(0,0,0,0.45);
       position:relative;
     }
 
@@ -277,29 +291,28 @@
 
     .hero-tag{
       position:absolute;
-      bottom:-18px; /* AUMENTADO */
+      bottom:-18px;
       left:50%;
       transform:translateX(-50%);
       background:rgba(15,23,42,0.95);
-      padding:8px 14px; /* AUMENTADO */
+      padding:8px 14px;
       border-radius:999px;
       border:1px solid rgba(148,163,184,0.6);
-      font-size:13px; /* AUMENTADO (antes 11px) */
+      font-size:13px;
       color:var(--muted);
       display:flex;
       align-items:center;
-      gap:8px; /* AUMENTADO */
+      gap:8px;
     }
 
     .hero-tag i{
       color:var(--accent-2);
     }
 
-    /* FOOTER */
     footer{
       text-align:center;
-      padding:18px;         /* AUMENTADO */
-      font-size:14px;       /* AUMENTADO (antes 13px) */
+      padding:18px;
+      font-size:14px;
       color:#5b6b68;
     }
   </style>
@@ -329,7 +342,7 @@
     </div>
   </header>
 
-  <!-- HOME / HERO -->
+  <!-- HOME -->
   <section id="home" class="hero">
     <div>
       <div class="hero-kicker">Energy &amp; Process Engineering</div>
