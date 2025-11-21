@@ -26,18 +26,20 @@
       color:#0f1724;
     }
 
-    /* NAVBAR */
+    /* NAVBAR (misma versión que EDUCATION) */
     nav{
       width:100%;
-      padding:18px 32px;
+      padding:14px 18px;
       background:white;
       display:flex;
       justify-content:space-between;
       align-items:center;
+      flex-wrap:wrap;
       box-shadow:var(--shadow);
       position:sticky;
       top:0;
       z-index:20;
+      box-sizing:border-box;
     }
 
     nav .brand{
@@ -46,18 +48,38 @@
       color:var(--accent-2);
     }
 
+    nav .links{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:8px; /* evita que se corte */
+    }
+
     nav .links a{
-      margin-left:20px;
       text-decoration:none;
       color:var(--muted);
       font-weight:600;
-      padding:8px 12px;
+      padding:6px 10px;
       border-radius:10px;
+      font-size:14px;
     }
 
     nav .links a:hover{
       background:rgba(5,150,105,0.08);
       color:var(--accent-2);
+    }
+
+    /* Responsive navbar */
+    @media (max-width: 768px) {
+      nav {
+        padding:10px 14px;
+        align-items:flex-start;
+      }
+
+      nav .brand {
+        margin-bottom:6px;
+        font-size:18px;
+      }
     }
 
     .container{
@@ -124,7 +146,6 @@
       margin-bottom:20px;
     }
 
-    /* Skills */
     .skills{
       display:flex;
       flex-wrap:wrap;
@@ -154,7 +175,7 @@
 
 <body>
 
-  <!-- NAVBAR (correctamente arriba) -->
+  <!-- NAVBAR -->
   <nav>
     <div class="brand">Sebastián Valentín Candelario</div>
     <div class="links">
