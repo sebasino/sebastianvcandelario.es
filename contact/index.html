@@ -3,10 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Education — Sebastián Valentín Candelario</title>
+  <title>Contact — Sebastián Valentín Candelario</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* Evitar scroll horizontal */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     :root{
       --bg:#f6fbf8;
       --card:#ffffff;
@@ -37,11 +43,19 @@
       top:0;
       z-index:20;
     }
+
     nav .brand{
       font-weight:800;
       font-size:20px;
       color:var(--accent-2);
     }
+
+    nav .links{
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
     nav .links a{
       margin-left:20px;
       text-decoration:none;
@@ -50,6 +64,7 @@
       padding:8px 12px;
       border-radius:10px;
     }
+
     nav .links a:hover{
       background:rgba(5,150,105,0.08);
       color:var(--accent-2);
@@ -62,6 +77,28 @@
       color:#053322;
       text-align:center;
       margin-top:40px;
+    }
+
+    /* Responsive navbar */
+    @media (max-width: 768px) {
+      nav {
+        padding: 12px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav .brand {
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      nav .links a {
+        margin-left: 0;
+        margin-right: 10px;
+        margin-top: 4px;
+        font-size: 14px;
+        padding: 6px 10px;
+      }
     }
   </style>
 </head>
