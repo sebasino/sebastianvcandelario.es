@@ -3,120 +3,383 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Experience — Sebastián Valentín Candelario</title>
+  <title>Sebastián Valentín Candelario — Portfolio</title>
+
+  <!-- JSON-LD: Datos estructurados -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sebastián Valentín Candelario",
+    "givenName": "Sebastián Valentín",
+    "familyName": "Candelario",
+    "description": "Environmental Process and Energy Engineer specialized in sustainable industrial systems, process simulation and low-carbon energy solutions.",
+    "jobTitle": "Environmental Process and Energy Engineer",
+    "url": "https://example.com/",
+    "image": "https://example.com/about-me/IMGweb.jpg",
+    "sameAs": [
+      "https://www.linkedin.com/in/sebastian-valentin-candelario/"
+    ],
+    "knowsAbout": [
+      "Process simulation (Aspen / MATLAB)",
+      "Mass and energy balances",
+      "Sustainable energy systems"
+    ]
+  }
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
   <style>
     :root{
-      --bg:#f6fbf8;
-      --card:#ffffff;
+      --bg:#020617;
+      --bg-soft:#0b1220;
       --accent:#16a34a;
-      --accent-2:#059669;
-      --muted:#5b6b68;
-      --shadow:0 6px 24px rgba(0,0,0,0.08);
-      --radius:14px;
+      --accent-2:#22c55e;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
     body{
-      margin:0;
-      font-family:Inter, Arial, sans-serif;
-      background:var(--bg);
-      color:#0f1724;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+      background:radial-gradient(circle at top,#052e16 0,#020617 55%);
+      color:var(--text);
+      min-height:100vh;
     }
 
-    /* NAVBAR */
-    nav{
-      width:100%;
-      padding:14px 18px;
-      background:white;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      box-shadow:var(--shadow);
+    /* HEADER */
+    header{
       position:sticky;
       top:0;
       z-index:20;
-      box-sizing:border-box;
+      background:rgba(2,6,23,0.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(148,163,184,0.25);
+      padding:8px 18px;
     }
 
-    nav .brand{
+    .nav{
+      max-width:1100px;
+      margin:0 auto;
+      padding:6px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .nav-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo-circle{
+      width:40px;
+      height:40px;
+      border-radius:999px;
+      background:radial-gradient(circle,#22c55e,#16a34a,#022c22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
       font-weight:800;
-      font-size:20px;
+      font-size:18px;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
+
+    .brand-name{
+      font-weight:700;
+      font-size:15px;
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .brand-role{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:14px;
+      font-size:14px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:var(--muted);
+      padding:6px 10px;
+      border-radius:999px;
+    }
+
+    .nav-links a:hover{
+      color:var(--text);
+      background:rgba(34,197,94,0.12);
+    }
+
+    @media(max-width:720px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:8px;
+      }
+    }
+
+    /* HERO */
+    .hero{
+      max-width:1100px;
+      margin:28px auto 40px auto;
+      padding:0 20px;
+      display:grid;
+      grid-template-columns:minmax(0,3fr) minmax(0,2fr);
+      gap:24px;
+      align-items:center;
+    }
+
+    @media(max-width:880px){
+      .hero{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .hero-kicker{
+      font-size:13px;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--accent-2);
+      font-weight:600;
+    }
+
+    .hero-title{
+      margin-top:8px;
+      font-size:30px;
+      line-height:1.25;
+      font-weight:800;
+    }
+
+    .hero-title span{
       color:var(--accent-2);
     }
 
-    nav .links{
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:8px; /* separación entre enlaces */
+    .hero-sub{
+      margin-top:10px;
+      font-size:16px;
+      color:var(--muted);
     }
 
-    nav .links a{
-      text-decoration:none;
-      color:var(--muted);
+    .hero-buttons{
+      margin-top:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .btn-primary{
+      padding:10px 18px;
+      border-radius:999px;
+      border:none;
+      cursor:pointer;
       font-weight:600;
-      padding:6px 10px;
-      border-radius:10px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:white;
+      text-decoration:none;
       font-size:14px;
     }
 
-    nav .links a:hover{
-      background:rgba(5,150,105,0.08);
+    .btn-ghost{
+      padding:10px 16px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);
+      background:transparent;
+      color:var(--text);
+      cursor:pointer;
+      font-size:14px;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .btn-ghost i{
+      font-size:14px;
+    }
+
+    .hero-badges{
+      margin-top:18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      font-size:11px;
+    }
+
+    .badge{
+      border-radius:999px;
+      border:1px solid rgba(34,197,94,0.5);
+      padding:6px 10px;
+      color:var(--accent-2);
+      background:rgba(22,163,74,0.12);
+      font-weight:600;
+    }
+
+    /* FOTO LADO DERECHO */
+    .hero-right{
+      display:flex;
+      justify-content:center;
+    }
+
+    .photo-frame{
+      width:230px;
+      height:230px;
+      border-radius:999px;
+      background:radial-gradient(circle,#22c55e,#16a34a,#0b1120);
+      padding:5px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.4);
+      position:relative;
+    }
+
+    .photo-inner{
+      width:100%;
+      height:100%;
+      border-radius:999px;
+      overflow:hidden;
+      background:#020617;
+    }
+
+    .photo-inner img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .hero-tag{
+      position:absolute;
+      bottom:-14px;
+      left:50%;
+      transform:translateX(-50%);
+      background:rgba(15,23,42,0.95);
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      font-size:11px;
+      color:var(--muted);
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .hero-tag i{
       color:var(--accent-2);
     }
 
-    /* TITLE */
-    h1{
-      font-size:32px;
-      font-weight:800;
-      color:#053322;
+    /* FOOTER */
+    footer{
       text-align:center;
-      margin-top:40px;
-    }
-
-    /* Responsive navbar */
-    @media (max-width: 768px) {
-      nav {
-        padding:10px 14px;
-        align-items:flex-start;
-      }
-
-      nav .brand {
-        margin-bottom:6px;
-        font-size:18px;
-      }
-
-      nav .links {
-        justify-content:flex-start;
-      }
+      padding:16px;
+      font-size:13px;
+      color:#5b6b68;
     }
   </style>
 </head>
-
 <body>
 
-  <!-- NAVBAR -->
-  <nav>
-    <div class="brand">Sebastián Valentín Candelario</div>
-    <div class="links">
-      <a href="/">Home</a>
-      <a href="/about-me/">About Me</a>
-      <a href="/education/">Education</a>
-      <a href="/experience/">Experience</a>
-      <a href="/projects/">Projects</a>
-      <a href="/contact/">Contact</a>
+  <!-- HEADER -->
+  <header id="header">
+    <div class="nav">
+      <div class="nav-left">
+        <div class="logo-circle">SC</div>
+        <div class="brand">
+          <a href="/" class="brand-name">
+            Sebastián Valentín Candelario
+          </a>
+          <span class="brand-role">Energy &amp; Process Engineer</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="/about-me/">About me</a>
+        <a href="/experience/">Experience</a>
+        <a href="/education/">Education</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <!-- PAGE TITLE -->
-  <h1>Experience</h1>
+  <!-- HOME / HERO -->
+  <section id="home" class="hero">
+    <div>
+      <div class="hero-kicker">Energy &amp; Process Engineering</div>
+      <h1 class="hero-title">
+        Hi, I’m <span>Sebastián Valentín Candelario</span><br>
+        Environmental Process and Energy Engineer.
+      </h1>
+      <p class="hero-sub">
+        Specialized in sustainable industrial systems, process simulation and low-carbon energy
+        solutions. I enjoy turning engineering data into actionable improvements for efficiency
+        and environmental performance.
+      </p>
 
-  <!-- PAGE CONTENT -->
-  <p style="text-align:center; margin-top:40px; font-size:25px; color:#5b6b68;">
-    This section is in progress. New content will be added soon :)
-  </p>
+      <div class="hero-buttons">
+        <a href="/projects/" class="btn-primary">Explore my projects</a>
+        <a href="https://www.linkedin.com/in/sebastian-valentin-candelario/"
+           target="_blank" class="btn-ghost">
+          <i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn
+        </a>
+      </div>
+
+      <div class="hero-badges">
+        <span class="badge">Process simulation (Aspen / MATLAB)</span>
+        <span class="badge">Mass &amp; energy balances</span>
+        <span class="badge">Sustainable energy systems</span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="photo-frame">
+        <div class="photo-inner">
+          <!-- Asegúrate de que esta ruta existe -->
+          <img src="/about-me/IMGweb.jpg" alt="Sebastián Valentín Candelario">
+        </div>
+        <div class="hero-tag">
+          <i class="fa-solid fa-leaf"></i>
+          Energy · Environment · Process
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> Sebastián Valentín Candelario. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
