@@ -30,45 +30,63 @@
       color:#0f1724;
     }
 
-    /* NAVBAR */
-    nav{
-      width:100%;
-      padding:18px 32px;
-      background:white;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      box-shadow:var(--shadow);
-      position:sticky;
-      top:0;
-      z-index:20;
-    }
+   /* NAVBAR */
+nav {
+  width: 100%;
+  padding: 14px 20px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;        /* permite que brand y links bajen a dos filas si hace falta */
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
 
-    nav .brand{
-      font-weight:800;
-      font-size:20px;
-      color:var(--accent-2);
-    }
+nav .brand {
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--accent-2);
+}
 
-    nav .links{
-      display:flex;
-      align-items:center;
-      flex-wrap:wrap;
-    }
+/* contenedor de enlaces */
+nav .links {
+  display: flex;
+  flex-wrap: wrap;        /* permite que los links se partan en varias líneas */
+  gap: 8px;               /* separación entre enlaces */
+}
 
-    nav .links a{
-      margin-left:20px;
-      text-decoration:none;
-      color:var(--muted);
-      font-weight:600;
-      padding:8px 12px;
-      border-radius:10px;
-    }
+/* cada enlace */
+nav .links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+}
 
-    nav .links a:hover{
-      background:rgba(5,150,105,0.08);
-      color:var(--accent-2);
-    }
+/* hover */
+nav .links a:hover {
+  background: rgba(5,150,105,0.08);
+  color: var(--accent-2);
+}
+
+/* ajuste extra en pantallas muy pequeñas */
+@media (max-width: 600px) {
+  nav {
+    padding: 10px 14px;
+    align-items: flex-start;
+  }
+
+  nav .brand {
+    margin-bottom: 6px;
+    font-size: 18px;
+  }
+}
+
 
     /* TITLE */
     h1{
