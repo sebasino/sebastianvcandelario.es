@@ -45,7 +45,9 @@
   <link rel="icon" type="image/png" href="/favicon.png">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link
@@ -57,295 +59,378 @@
 
   <style>
     :root{
-      --bg:#020617;
-      --bg-soft:#0b1220;
-      --accent:#16a34a;
-      --accent-2:#22c55e;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
+      --paper:#EEF1EC;
+      --surface:#FBFCF9;
+      --ink:#14201B;
+      --ink-soft:#54635B;
+      --line:#D3DACF;
+      --line-strong:#B9C3B4;
+      --green:#1A6B4C;
+      --green-deep:#0F5137;
+      --green-tint:#E4ECE5;
+      --slate:#3A5B6B;
+      --focus:#1A6B4C;
     }
 
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    html{ scroll-behavior:smooth; }
 
     body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
-      background:radial-gradient(circle at top,#052e16 0,#020617 55%);
-      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+      background:var(--paper);
+      color:var(--ink);
       min-height:100vh;
-      position:relative;
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
     }
 
-    /* FONDO CON IMAGEN DIFUMINADA */
+    /* faint engineering grid, drawn not photographed */
     body::before{
       content:"";
       position:fixed;
       inset:0;
-      background-image:url("/about-me/background.jpg");
-      background-size:cover;
-      background-position:center;
-      background-attachment:fixed;
-      filter:blur(10px) brightness(0.45);
+      background-image:
+        linear-gradient(to right, rgba(58,91,107,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(58,91,107,0.05) 1px, transparent 1px);
+      background-size:34px 34px;
       z-index:-1;
       pointer-events:none;
+      -webkit-mask-image:radial-gradient(circle at 50% 30%, #000 0, transparent 78%);
+              mask-image:radial-gradient(circle at 50% 30%, #000 0, transparent 78%);
     }
 
-    /* HEADER */
+    a{ color:inherit; }
+
+    :focus-visible{
+      outline:2px solid var(--green);
+      outline-offset:3px;
+      border-radius:4px;
+    }
+
+    .wrap{ max-width:1160px; margin:0 auto; padding:0 26px; }
+
+    .mono{
+      font-family:"IBM Plex Mono",ui-monospace,monospace;
+      letter-spacing:0.04em;
+    }
+
+    /* ---------- HEADER ---------- */
     header{
       position:sticky;
       top:0;
-      z-index:20;
-      background:rgba(2,6,23,0.92);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(148,163,184,0.25);
-      padding:10px 22px;
+      z-index:30;
+      background:rgba(238,241,236,0.82);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
     }
 
     .nav{
-      max-width:1200px;
+      max-width:1160px;
       margin:0 auto;
-      padding:8px 14px;
+      padding:12px 26px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-    }
-
-    .nav-left{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .logo-circle{
-      width:50px;
-      height:50px;
-      border-radius:999px;
-      background:radial-gradient(circle,#22c55e,#16a34a,#022c22);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:white;
-      font-weight:800;
-      font-size:22px;
-    }
-
-    .brand{
-      display:flex;
-      flex-direction:column;
-      line-height:1.1;
-    }
-
-    .brand-name{
-      font-weight:700;
-      font-size:19px;
-      text-decoration:none;
-      color:inherit;
-    }
-
-    .brand-role{
-      font-size:15px;
-      color:var(--muted);
-    }
-
-    .nav-links{
-      display:flex;
       gap:16px;
-      font-size:17px;
-      flex-wrap:wrap;
     }
 
+    .nav-left{ display:flex; align-items:center; gap:13px; }
+
+    .mark{
+      width:44px; height:44px;
+      border:1.5px solid var(--ink);
+      border-radius:11px;
+      display:flex; align-items:center; justify-content:center;
+      font-family:"Space Grotesk",sans-serif;
+      font-weight:700; font-size:15px; letter-spacing:0.02em;
+      background:var(--surface);
+      position:relative;
+    }
+    /* corner tick, small engineering-drawing detail */
+    .mark::after{
+      content:"";
+      position:absolute; top:-4px; right:-4px;
+      width:7px; height:7px;
+      border-top:1.5px solid var(--green);
+      border-right:1.5px solid var(--green);
+    }
+
+    .brand{ display:flex; flex-direction:column; line-height:1.15; }
+    .brand-name{
+      font-family:"Space Grotesk",sans-serif;
+      font-weight:600; font-size:16px; text-decoration:none;
+    }
+    .brand-role{
+      font-size:11px; color:var(--ink-soft);
+      text-transform:uppercase; letter-spacing:0.14em;
+    }
+
+    .nav-links{ display:flex; gap:2px; flex-wrap:wrap; }
     .nav-links a{
       text-decoration:none;
-      color:var(--muted);
-      padding:8px 12px;
+      color:var(--ink-soft);
+      font-size:14px;
+      padding:7px 13px;
       border-radius:999px;
+      transition:color .18s ease, background .18s ease;
     }
-
-    .nav-links a:hover{
-      color:var(--text);
-      background:rgba(34,197,94,0.12);
+    .nav-links a:hover{ color:var(--ink); background:var(--green-tint); }
+    .nav-links a[aria-current="page"]{
+      color:var(--green-deep);
+      background:var(--green-tint);
+      font-weight:500;
     }
 
     @media(max-width:720px){
-      .nav{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:10px;
-      }
+      .nav{ flex-direction:column; align-items:flex-start; }
+      .nav-links{ font-size:13px; }
     }
 
-    /* HERO */
+    /* ---------- HERO ---------- */
     .hero{
-      max-width:1200px;
-      margin:32px auto 50px auto;
-      padding:0 24px;
+      padding:64px 0 20px;
       display:grid;
-      grid-template-columns:minmax(0,3fr) minmax(0,2fr);
-      gap:28px;
+      grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+      gap:52px;
       align-items:center;
     }
-
-    @media(max-width:880px){
-      .hero{
-        grid-template-columns:1fr;
-      }
+    @media(max-width:900px){
+      .hero{ grid-template-columns:1fr; gap:40px; padding-top:48px; }
     }
 
-    .hero-kicker{
-      font-size:16px;
-      letter-spacing:0.14em;
-      text-transform:uppercase;
-      color:var(--accent-2);
-      font-weight:600;
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:12px; text-transform:uppercase; color:var(--slate);
+      border:1px solid var(--line-strong);
+      padding:6px 12px; border-radius:999px;
+      background:var(--surface);
+    }
+    .eyebrow .dot{
+      width:7px; height:7px; border-radius:999px; background:var(--green);
     }
 
     .hero-title{
-      margin-top:10px;
-      font-size:38px;
-      line-height:1.25;
-      font-weight:800;
+      font-family:"Space Grotesk",sans-serif;
+      font-weight:700;
+      font-size:clamp(2.3rem, 5.4vw, 3.9rem);
+      line-height:1.04;
+      letter-spacing:-0.02em;
+      margin-top:20px;
     }
-
-    .hero-title span{
-      color:var(--accent-2);
+    .hero-title .role{
+      display:block;
+      font-family:Inter,sans-serif;
+      font-weight:500;
+      font-size:clamp(1.05rem, 2vw, 1.4rem);
+      color:var(--ink-soft);
+      letter-spacing:0;
+      margin-top:14px;
     }
+    .hero-title .role b{ color:var(--green-deep); font-weight:600; }
 
     .hero-sub{
-      margin-top:12px;
-      font-size:20px;
-      color:var(--muted);
-    }
-
-    .hero-buttons{
       margin-top:20px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
+      font-size:16.5px;
+      color:var(--ink-soft);
+      max-width:46ch;
     }
 
+    .hero-buttons{ margin-top:26px; display:flex; flex-wrap:wrap; gap:12px; }
+
+    .btn{
+      display:inline-flex; align-items:center; gap:9px;
+      padding:12px 20px; border-radius:11px;
+      font-size:15px; font-weight:500; text-decoration:none;
+      transition:transform .16s ease, box-shadow .16s ease, background .16s ease;
+    }
+    .btn i{ font-size:14px; }
     .btn-primary{
-      padding:12px 22px;
-      border-radius:999px;
-      border:none;
-      cursor:pointer;
-      font-weight:600;
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
-      color:white;
-      text-decoration:none;
-      font-size:16px;
+      background:var(--green); color:#fff;
+      box-shadow:0 6px 16px rgba(26,107,76,0.22);
     }
-
+    .btn-primary:hover{ background:var(--green-deep); transform:translateY(-2px); }
     .btn-ghost{
-      padding:12px 20px;
-      border-radius:999px;
-      border:1px solid rgba(148,163,184,0.5);
-      background:transparent;
-      color:var(--text);
-      cursor:pointer;
-      font-size:16px;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
+      background:var(--surface); color:var(--ink);
+      border:1px solid var(--line-strong);
+    }
+    .btn-ghost:hover{ border-color:var(--green); color:var(--green-deep); transform:translateY(-2px); }
+
+    .tags{
+      margin-top:26px;
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .tag{
+      font-family:"IBM Plex Mono",monospace;
+      font-size:12px; letter-spacing:0.02em;
+      color:var(--ink);
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-left:3px solid var(--green);
+      padding:7px 11px; border-radius:6px;
     }
 
-    .btn-ghost i{
-      font-size:16px;
-    }
-
-    .hero-badges{
-      margin-top:20px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      font-size:14px;
-    }
-
-    .badge{
-      border-radius:999px;
-      border:1px solid rgba(34,197,94,0.5);
-      padding:8px 12px;
-      color:var(--accent-2);
-      background:rgba(22,163,74,0.12);
-      font-weight:600;
-    }
-
-    .hero-right{
-      display:flex;
-      justify-content:center;
-    }
-
-    .photo-frame{
-      width:290px;
-      height:290px;
-      border-radius:999px;
-      background:radial-gradient(circle,#22c55e,#16a34a,#0b1120);
-      padding:6px;
-      box-shadow:0 24px 48px rgba(0,0,0,0.45);
+    /* photo as a spec card */
+    .spec{
+      justify-self:center;
+      width:min(340px, 100%);
+      background:var(--surface);
+      border:1px solid var(--line-strong);
+      border-radius:18px;
+      padding:12px;
       position:relative;
+      box-shadow:0 22px 44px rgba(20,32,27,0.10);
+    }
+    .spec-head{
+      display:flex; align-items:center; justify-content:space-between;
+      font-family:"IBM Plex Mono",monospace;
+      font-size:11px; color:var(--ink-soft);
+      padding:2px 4px 10px;
+      letter-spacing:0.05em;
+    }
+    .spec-head .live{ display:inline-flex; align-items:center; gap:7px; color:var(--green-deep); }
+    .spec-head .live::before{
+      content:""; width:7px; height:7px; border-radius:999px; background:var(--green);
+    }
+    .spec-photo{
+      border-radius:12px; overflow:hidden; aspect-ratio:1/1; background:var(--paper);
+    }
+    .spec-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .spec-foot{
+      display:flex; align-items:center; justify-content:space-between;
+      font-family:"IBM Plex Mono",monospace;
+      font-size:11px; color:var(--ink-soft);
+      padding:11px 4px 2px;
+    }
+    .spec-foot .leaf{ color:var(--green); }
+    /* corner registration ticks */
+    .spec::before, .spec::after{
+      content:""; position:absolute; width:14px; height:14px;
+      border:2px solid var(--slate); opacity:0.55;
+    }
+    .spec::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; border-top-left-radius:18px; }
+    .spec::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; border-bottom-right-radius:18px; }
+
+    /* ---------- STREAM SIGNATURE ---------- */
+    .stream{
+      margin:14px 0 8px;
+      padding:30px 0 34px;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+    .stream-label{
+      font-family:"IBM Plex Mono",monospace;
+      font-size:11.5px; text-transform:uppercase; letter-spacing:0.14em;
+      color:var(--slate);
+      margin-bottom:16px;
+    }
+    .stream-svg{ width:100%; height:88px; display:block; overflow:visible; }
+    .stream-node text.title{
+      font-family:"Space Grotesk",sans-serif; font-weight:600;
+      font-size:15px; fill:var(--ink);
+    }
+    .stream-node text.sub{
+      font-family:"IBM Plex Mono",monospace;
+      font-size:10.5px; fill:var(--ink-soft); letter-spacing:0.03em;
+    }
+    .flow-dash{ stroke:var(--green); stroke-width:2; stroke-dasharray:5 9; fill:none; }
+    .flow-base{ stroke:var(--line-strong); stroke-width:2; fill:none; }
+    .node-dot{ fill:var(--surface); stroke:var(--green); stroke-width:2.4; }
+    .marker{ fill:var(--green); }
+
+    @media (prefers-reduced-motion: no-preference){
+      .flow-dash{ animation:flow 2.4s linear infinite; }
+      .marker{ animation:ride 4.8s linear infinite; }
+      @keyframes flow{ to{ stroke-dashoffset:-56; } }
+      @keyframes ride{
+        0%{ transform:translateX(0); opacity:0; }
+        6%{ opacity:1; }
+        94%{ opacity:1; }
+        100%{ transform:translateX(var(--ride,760px)); opacity:0; }
+      }
     }
 
-    .photo-inner{
-      width:100%;
-      height:100%;
-      border-radius:999px;
-      overflow:hidden;
-      background:#020617;
+    @media(max-width:640px){
+      .stream-svg{ height:auto; }
     }
 
-    .photo-inner img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
+    /* ---------- FOCUS STRIP ---------- */
+    .focus{ padding:34px 0 20px; }
+    .focus-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+    @media(max-width:760px){ .focus-grid{ grid-template-columns:1fr; } }
+
+    .card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:20px 20px 22px;
+      transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{
+      transform:translateY(-3px);
+      border-color:var(--line-strong);
+      box-shadow:0 14px 30px rgba(20,32,27,0.07);
+    }
+    .card .ic{
+      width:38px; height:38px; border-radius:10px;
+      background:var(--green-tint); color:var(--green-deep);
+      display:flex; align-items:center; justify-content:center;
+      font-size:16px; margin-bottom:14px;
+    }
+    .card h3{
+      font-family:"Space Grotesk",sans-serif;
+      font-size:16px; font-weight:600; margin-bottom:6px;
+    }
+    .card p{ font-size:14px; color:var(--ink-soft); }
+    .card .k{
+      font-family:"IBM Plex Mono",monospace;
+      font-size:11px; color:var(--slate); letter-spacing:0.06em;
+      display:block; margin-top:12px;
     }
 
-    .hero-tag{
-      position:absolute;
-      bottom:-18px;
-      left:50%;
-      transform:translateX(-50%);
-      background:rgba(15,23,42,0.95);
-      padding:8px 14px;
-      border-radius:999px;
-      border:1px solid rgba(148,163,184,0.6);
-      font-size:13px;
-      color:var(--muted);
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-
-    .hero-tag i{
-      color:var(--accent-2);
-    }
-
+    /* ---------- FOOTER ---------- */
     footer{
-      text-align:center;
-      padding:18px;
-      font-size:14px;
-      color:#5b6b68;
+      margin-top:26px;
+      border-top:1px solid var(--line);
+    }
+    .foot{
+      display:flex; align-items:center; justify-content:space-between;
+      flex-wrap:wrap; gap:12px;
+      padding:22px 0 30px;
+      font-family:"IBM Plex Mono",monospace;
+      font-size:12px; color:var(--ink-soft);
+    }
+    .foot a{ text-decoration:none; color:var(--ink-soft); }
+    .foot a:hover{ color:var(--green-deep); }
+
+    /* ---------- LOAD REVEAL ---------- */
+    @media (prefers-reduced-motion: no-preference){
+      .reveal{ opacity:0; transform:translateY(14px); animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards; }
+      .d1{ animation-delay:.05s; } .d2{ animation-delay:.14s; }
+      .d3{ animation-delay:.23s; } .d4{ animation-delay:.32s; }
+      .d5{ animation-delay:.42s; }
+      @keyframes rise{ to{ opacity:1; transform:none; } }
     }
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
-  <header id="header">
+  <header>
     <div class="nav">
       <div class="nav-left">
-        <div class="logo-circle">SVC</div>
+        <div class="mark">SVC</div>
         <div class="brand">
-          <a href="/" class="brand-name">
-            Sebastián Valentín Candelario
-          </a>
+          <a href="/" class="brand-name">Sebastián V. Candelario</a>
           <span class="brand-role">Energy &amp; Process Engineer</span>
         </div>
       </div>
-      <nav class="nav-links">
-        <a style="pointer-events:none; opacity:0.6;">Home</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/" aria-current="page">Home</a>
         <a href="/about-me/">About me</a>
         <a href="/experience/">Experience</a>
         <a href="/education/">Education</a>
@@ -355,51 +440,115 @@
     </div>
   </header>
 
-  <!-- HOME -->
-  <section id="home" class="hero">
-    <div>
-      <div class="hero-kicker">Energy &amp; Process Engineering</div>
-      <h1 class="hero-title">
-        Hi, I’m <span>Sebastián Valentín Candelario</span><br>
-        Environmental Process and Energy Engineer.
-      </h1>
-      <p class="hero-sub">
-        Specialized in sustainable industrial systems, process simulation and low-carbon energy
-        solutions. I enjoy turning engineering data into actionable improvements for efficiency
-        and environmental performance.
-      </p>
+  <main class="wrap">
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div>
+        <span class="eyebrow mono reveal d1"><span class="dot"></span> Environment · Process · Energy</span>
 
-      <div class="hero-buttons">
-        <a href="/projects/" class="btn-primary">Explore my projects</a>
-        <a href="https://www.linkedin.com/in/sebastian-valentin-candelario/"
-           target="_blank" class="btn-ghost">
-          <i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn
-        </a>
-      </div>
+        <h1 class="hero-title reveal d2">
+          Sebastián Valentín<br>Candelario
+          <span class="role">Environmental <b>Process &amp; Energy</b> Engineer</span>
+        </h1>
 
-      <div class="hero-badges">
-        <span class="badge">Process simulation (Aspen / MATLAB)</span>
-        <span class="badge">Mass &amp; energy balances</span>
-        <span class="badge">Sustainable energy systems</span>
-      </div>
-    </div>
+        <p class="hero-sub reveal d3">
+          I model industrial systems and turn their mass and energy balances into concrete
+          efficiency and emissions gains — the same rigour a process sheet demands, applied
+          to lower-carbon design.
+        </p>
 
-    <div class="hero-right">
-      <div class="photo-frame">
-        <div class="photo-inner">
-          <img src="/about-me/IMGweb.jpg" alt="Sebastián Valentín Candelario">
+        <div class="hero-buttons reveal d4">
+          <a href="/projects/" class="btn btn-primary">Explore my projects <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="https://www.linkedin.com/in/sebastian-valentin-candelario/" target="_blank" rel="noopener" class="btn btn-ghost">
+            <i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn
+          </a>
         </div>
-        <div class="hero-tag">
-          <i class="fa-solid fa-leaf"></i>
-          Energy · Environment · Process
+
+        <div class="tags reveal d5">
+          <span class="tag">Aspen / MATLAB simulation</span>
+          <span class="tag">Mass &amp; energy balances</span>
+          <span class="tag">Sustainable energy systems</span>
         </div>
       </div>
-    </div>
-  </section>
+
+      <div class="spec reveal d3">
+        <div class="spec-head mono">
+          <span>FIG. 01 — PROFILE</span>
+          <span class="live">ONLINE</span>
+        </div>
+        <div class="spec-photo">
+          <img src="/about-me/IMGweb.jpg" alt="Portrait of Sebastián Valentín Candelario">
+        </div>
+        <div class="spec-foot mono">
+          <span>S. V. CANDELARIO</span>
+          <span class="leaf"><i class="fa-solid fa-leaf"></i> LOW-CARBON</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STREAM SIGNATURE -->
+    <section class="stream" aria-label="How I work">
+      <div class="stream-label mono">Process stream — how the work flows</div>
+      <svg class="stream-svg" viewBox="0 0 900 88" preserveAspectRatio="xMidYMid meet" role="img"
+           aria-label="Data feeds into simulation, which yields improvement">
+        <!-- base + animated flow line -->
+        <line class="flow-base" x1="70" y1="30" x2="830" y2="30"></line>
+        <line class="flow-dash" x1="70" y1="30" x2="830" y2="30"></line>
+        <!-- travelling marker -->
+        <circle class="marker" cx="70" cy="30" r="4.5" style="--ride:760px"></circle>
+
+        <!-- nodes -->
+        <g class="stream-node">
+          <circle class="node-dot" cx="70" cy="30" r="8"></circle>
+          <text class="title" x="70" y="60" text-anchor="middle">Feed</text>
+          <text class="sub" x="70" y="76" text-anchor="middle">data · streams</text>
+        </g>
+        <g class="stream-node">
+          <circle class="node-dot" cx="450" cy="30" r="8"></circle>
+          <text class="title" x="450" y="60" text-anchor="middle">Simulation</text>
+          <text class="sub" x="450" y="76" text-anchor="middle">balances · models</text>
+        </g>
+        <g class="stream-node">
+          <circle class="node-dot" cx="830" cy="30" r="8"></circle>
+          <text class="title" x="830" y="60" text-anchor="middle">Improvement</text>
+          <text class="sub" x="830" y="76" text-anchor="middle">efficiency · lower CO₂</text>
+        </g>
+      </svg>
+    </section>
+
+    <!-- FOCUS STRIP -->
+    <section class="focus" aria-label="Focus areas">
+      <div class="focus-grid">
+        <div class="card">
+          <div class="ic"><i class="fa-solid fa-diagram-project"></i></div>
+          <h3>Process simulation</h3>
+          <p>Building and converging flowsheets in Aspen Plus and MATLAB, then reading what the numbers actually say.</p>
+          <span class="k mono">ASPEN · MATLAB</span>
+        </div>
+        <div class="card">
+          <div class="ic"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h3>Mass &amp; energy balances</h3>
+          <p>Closing balances that hold, sizing equipment from them, and finding where energy is quietly wasted.</p>
+          <span class="k mono">BALANCE · SIZING</span>
+        </div>
+        <div class="card">
+          <div class="ic"><i class="fa-solid fa-leaf"></i></div>
+          <h3>Low-carbon design</h3>
+          <p>Heat integration, off-gas recovery and cleaner utilities to cut a process's footprint without losing performance.</p>
+          <span class="k mono">EFFICIENCY · CO₂</span>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
-    © <span id="year"></span> Sebastián Valentín Candelario. All rights reserved.
+    <div class="wrap foot">
+      <span>© <span id="year"></span> Sebastián Valentín Candelario</span>
+      <a href="https://www.linkedin.com/in/sebastian-valentin-candelario/" target="_blank" rel="noopener">
+        <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+      </a>
+    </div>
   </footer>
 
   <script>
